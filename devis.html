@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epitech</title>
+    <link rel="stylesheet" href="design/styles.css">
+    <script src="design/script.js"></script>
+</head>
+<body class="other-page">
+    <header>
+        <a href="index.html"><img src="images/Icon/Logonoir.png" alt="Epitech Logo" class="logo"></a>
+    
+        <!-- Menu visible -->
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html"></a></li>
+                <li><a href="recemment.html">Récemment</a></li>
+                <li><a href="àpropos.html">Nos missions</a></li>
+                <li><a href="projets.html">Nos projets</a></li>
+                <li><a href="devis.html">Nous contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section d'introduction -->
+        <section class="intro">
+            <div class="container">
+                <h1>Contactez-nous</h1>
+                <p>Pour toute demande de devis ou d'informations, remplissez le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais.</p>
+            </div>
+        </section>
+
+        <!-- Formulaire de contact -->
+        <section class="contact-container">
+            <div class="container">
+                <h2>Formulaire de contact</h2>
+                <form form action="https://api.web3forms.com/submit" method="post" class="contact-form">
+
+                    <input type="hidden" name="access_key" value="872ca7e9-54f6-46c1-a932-7164c6ab7e13">
+
+                    <label for="precisions">Votre demande: :</label>
+                    <textarea id="precisions" name="precisions" rows="4" placeholder="Bonjour, je souhaite obtenir un devis pour ..."></textarea>
+
+                    <label for="nom">Nom *</label>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+
+                    <button type="submit" class="submit-btn">Envoyer</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 Epitech. Tous droits réservés.</p>
+        <p><a href="mentions-legales.html">Mentions légales</a></p>
+    </footer>
+
+
+</body>
+</html>

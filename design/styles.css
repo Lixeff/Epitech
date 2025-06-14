@@ -1,0 +1,1378 @@
+/* Réinitialisation de base */
+html, body {
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime les paddings par défaut */
+    width: 100%; /* Assure que le contenu prend toute la largeur */
+    height: 100%; /* Assure que le contenu prend toute la hauteur */
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+    font-family: Arial, sans-serif;
+}
+
+
+/* Header */
+body.home header {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px 20px;
+    background-color: transparent; /* Rend le header transparent */
+    position: fixed; /* Positionne le header au-dessus du diaporama */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Place le header au-dessus du diaporama */
+    color: #ffffff; /* Texte en blanc pour le menu */
+}
+
+/* Style du menu pour les autres pages */
+body.other-page header {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: #f7f7f7; /* Fond blanc */
+    box-shadow: 0 2px 3px rgba(88, 88, 88, 0.2); /* Ombre sous le menu */
+    position: relative; /* Menu non fixe */
+    padding: 20px 20px; /* Ajoute plus d'espace */
+    color: #333; /* Texte en noir */
+}
+
+body.other-page header nav a {
+    color: #3a3a3a; /* Texte en noir pour les liens */
+}
+
+body.other-page header nav a:hover {
+    color: #2e2e2e; /* Texte bleu au survol */
+    background-color: transparent; /* Fond transparent au survol */
+    text-decoration: underline; /* Soulignement au survol */
+    transition: color 0.3s, background-color 0.3s; /* Transition douce pour le survol */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    height: auto; /* Permet à l'image de garder ses proportions */
+    height: auto;
+    cursor: pointer;
+}
+
+
+/* Menu */
+nav {
+    display: flex; /* Aligne les éléments horizontalement */
+    gap: 20px; /* Espacement entre les liens */
+}
+
+nav ul {
+    display: flex; /* Aligne les éléments horizontalement */
+    list-style: none; /* Supprime les puces */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav a {
+    color: #fff; /* Texte en blanc pour le menu */
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fond blanc semi-transparent au survol */
+    color: #fff;
+}
+
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    width: 100%; /* Largeur des images sur la page */
+    height: 100vh; 
+    margin: 0; /* Centre le slider horizontalement */
+    overflow: hidden; /* Cache les débordements des images */
+}
+
+/* Voile sombre sur les images */
+.slideshow-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background: rgba(0, 0, 0, 0.5); /* Voile noir semi-transparent */
+    z-index: 1; /* Place le voile au-dessus des images mais sous le texte */
+    pointer-events: none; /* Permet de cliquer à travers le voile */
+}
+
+/* Texte sur le diaporama */
+.slideshow-container .slideshow-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Couleur blanche pour le texte */
+    text-align: center;
+    z-index: 2; /* Place le texte au-dessus du voile */
+}
+
+.slideshow-container .slideshow-text h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.slideshow-container .slideshow-text p {
+    font-size: 20px;
+    margin: 10px 0 0;
+}
+.slides {
+    display: none;
+    width: 100%; /* Prend toute la largeur du conteneur */
+    height: 90%; /* Prend toute la hauteur du conteneur */
+    object-fit: cover; /* Ajuste l'image pour couvrir tout le conteneur sans déformation */
+}
+
+/* Animation pour un fondu doux */
+.fade {
+    animation: fadeEffect 1s ease-in-out;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+/* Section de description de l'entreprise */
+.company-description {
+    padding: 0px 20px;
+    text-align: left;
+    max-width: 800px; /* Limite la largeur de la description */
+    background-color: #ffffff; /* Couleur de fond légère */
+    color: #333; /* Couleur du texte */
+}
+
+.company-description h2 {
+    font-size: 24px;
+    margin-bottom: 18px;
+    color: #000; /* Couleur du titre */
+}
+
+.company-description p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-bottom: 40px;
+}
+
+/* Section des missions */
+.missions {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffffff; /* Couleur de fond légère */
+}
+
+/* Liens dans la section missions */
+.mission a {
+    text-decoration: none; /* Supprime le soulignement */
+    color: inherit; /* Utilise la couleur par défaut du texte */
+}
+
+.mission a:hover {
+    color: #7c7c7c; /* Optionnel : ajoute une couleur au survol */
+}
+
+.missions-container {
+    display: flex;
+    justify-content: center;
+    gap: 150px; /* Espacement entre les missions */
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
+}
+
+.mission {
+    width: 250px;
+    text-align: center;
+}
+
+.mission img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* Ajuste l'image sans déformation */
+    border-radius: 8px; /* Coins arrondis */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission img:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+}
+
+.mission h3 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    padding-bottom: 40px;
+    text-transform: uppercase; /* Met le texte en majuscules */
+}
+
+/* Section Nos projets */
+.homepage-projects {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f5f5f5; /* Couleur de fond légère */
+}
+
+.homepage-projects-container {
+    display: flex;
+    flex-wrap: nowrap; /* Empêche les éléments de passer à la ligne */
+    gap: 0px; /* Espacement entre le titre et la grille */
+    width: 100%;
+    align-items: flex-start; /* Aligne le titre et la grille en haut */
+}
+
+/* Titre à gauche */
+.homepage-projects-title {
+    flex: 0 0 15%; /* Le titre occupe 20% de la largeur */
+    text-align: left;
+    margin-left: 20px;
+}
+.homepage-projects-title h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.homepage-projects-title .view-more {
+    font-size: 16px;
+    color: #919191;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+    transition: color 0.3s ease; /* Transition pour un effet de survol */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+.homepage-projects-title .view-more:hover {
+    text-decoration: underline;
+    color: #555; /* Change la couleur au survol */
+}
+
+/* Grille des images */
+.homepage-projects-grid {
+    flex: 1; /* La grille occupe tout l'espace restant */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes */
+    gap: 5px; /* Augmente l'espacement entre les images */
+    padding-right: 100px; /* Supprime le padding pour que la grille s'étende jusqu'à droite */  
+    padding-left: 20px; /* Ajoute un padding à gauche pour l'espacement */
+    padding-top: 20px; /* Ajoute un padding en haut pour l'espacement */
+    padding-bottom: 20px; /* Ajoute un padding en bas pour l'espacement */
+    justify-items: stretch; /* Étire les images pour occuper tout l'espace disponible */
+}
+
+.homepage-projects-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ajuste l'image sans déformation */
+}
+
+/* Section Vision */
+.home-about {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Couleur de fond légère */
+    text-align: center;
+}
+
+.home-about-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet de s'adapter aux petits écrans */
+    gap: 40px; /* Espacement entre les valeurs */
+    justify-content: center; /* Centre les éléments */
+    padding-top: 60px;
+    margin-bottom: 40px;
+}
+
+.home-about-item {
+    flex: 1 1 calc(33.333% - 40px); /* Trois colonnes avec un espacement */
+    max-width: 300px; /* Largeur maximale pour chaque valeur */
+    text-align: center;
+    background-color: #ffffff; /* Fond blanc pour chaque valeur */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-about-item:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+.home-about-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Ajuste l'image sans déformation */
+    border-radius: 8px; /* Coins arrondis pour l'image */
+    margin-bottom: 15px;
+}
+
+.home-about-section-title{
+    font-size: 16px;
+    color: #919191;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.home-about-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify; /* Justifie le texte pour une meilleure présentation */
+    padding: 0 10px; /* Ajoute un peu de rembourrage pour aérer le texte */
+    font-weight: 400; /* Définit une épaisseur de texte normale */
+}
+
+
+
+
+/* Section Nous contacter */
+.contact-us {
+    text-align: center;
+    padding: 80px 20px; /* Augmente l'espacement interne pour aérer */
+    background-color: #ffffff; /* Fond gris clair */
+    border-radius: 8px; /* Coins arrondis */
+    margin-bottom: 40px; /* Espacement externe */
+    position: relative; /* Permet d'ajouter des éléments décoratifs */
+    overflow: hidden; /* Masque les éléments décoratifs qui dépassent */
+}
+
+/* Décoration de fond */
+.contact-us::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 123, 255, 0.1); /* Cercle décoratif bleu clair */
+    border-radius: 50%;
+    z-index: -1; /* Place derrière le contenu */
+}
+
+.contact-us::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(0, 123, 255, 0.1); /* Cercle décoratif bleu clair */
+    border-radius: 50%;
+    z-index: -1; /* Place derrière le contenu */
+}
+
+/* Titre de la section */
+.contact-us .section-title {
+    font-size: 32px; /* Augmente la taille du titre */
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Met le titre en majuscules */
+    letter-spacing: 1px; /* Ajoute un espacement entre les lettres */
+}
+
+/* Texte de la section */
+.contact-us p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.8; /* Augmente l'espacement entre les lignes */
+    max-width: 600px; /* Limite la largeur du texte */
+    margin-left: auto;
+    margin-right: auto; /* Centre le texte */
+}
+
+/* Bouton de contact */
+.contact-button {
+    display: inline-block;
+    padding: 15px 40px; /* Augmente la taille du bouton */
+    font-size: 18px;
+    color: #fff;
+    background-color: #868686; /* Couleur du bouton */
+    text-decoration: none;
+    border-radius: 50px; /* Bouton arrondi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Ajoute une transition fluide */
+}
+
+.contact-button:hover {
+    background-color: #555555; /* Couleur au survol */
+    transform: translateY(-3px); /* Légère élévation au survol */
+}
+
+
+
+
+/* Section À la une */
+.featured-project {
+    padding: 60px 20px;
+    background-color: #ffffff; /* Fond gris clair */
+    text-align: left; /* Aligne le contenu à gauche */
+    margin-bottom: 40px;
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Titre de la section À la une */
+.featured-project h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Met le titre en majuscules */
+    border-bottom: 2px solid #ddd; /* Ajoute un trait sous le titre */
+    display: inline-block; /* Limite la largeur du trait à celle du texte */
+    padding-bottom: 10px; /* Ajoute un espace entre le texte et le trait */
+}
+
+/* Conteneur de la section */
+.featured-project-container {
+    display: flex;
+    flex-wrap: wrap; /* Adaptation aux petits écrans */
+    align-items: center;
+    gap: 60px;
+    justify-content: center;
+}
+
+/* Image du projet */
+.featured-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Description du projet */
+.featured-description {
+    max-width: 500px;
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+.featured-description h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.featured-description p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Bouton pour voir le chantier */
+.featured-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #797979; /* Couleur du bouton */
+    text-decoration: none;
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s ease;
+}
+
+.featured-button:hover {
+    background-color: #636363; /* Couleur au survol */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .featured-project-container {
+        flex-direction: column; /* Passe en colonne sur les petits écrans */
+    }
+
+    .featured-description {
+        text-align: center; /* Centre le texte sur les petits écrans */
+    }
+}
+
+
+
+
+                                    /*Recemment*/
+
+
+/* Conteneur principal */
+main {
+    padding: 40px 20px; /* Ajoute un espacement interne */
+    background-color: #ffffff; /* Fond gris clair */
+}
+
+/* Titre principal */
+
+.project-header h1 {
+    font-size: 42px; /* Augmente la taille du titre */
+    font-weight: bold; /* Rend le titre plus marqué */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Met le texte en majuscules */
+}
+
+/* Sous-titres des sections */
+.project-info h2,
+.project-buildings h2 {
+    font-size: 28px; /* Taille des sous-titres */
+    margin-bottom: 20px;
+    text-align: center; /* Centre le texte */
+}
+
+.project-header p {
+    font-size: 18px; /* Taille du texte */
+    color: #666; /* Couleur du texte */
+    line-height: 1.8; /* Espacement entre les lignes */
+    padding-bottom: 20px;
+
+}
+
+/* Ligne décorative sous le titre */
+.project-header h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #3b3b3b; /* Couleur blanche pour la ligne */
+    margin: 10px auto 0; /* Centre la ligne sous le titre */
+    border-radius: 2px; /* Coins arrondis */
+}
+
+/* Informations générales */
+/* Conteneur pour les informations générales */
+.project-info-container {
+    display: flex;
+    flex-direction: column; /* Place l'image au-dessus du texte */
+    align-items: center; /* Centre les éléments */
+    gap: 20px; /* Ajoute un espacement entre l'image et le texte */
+}
+
+.info-image {
+    max-width: 100%; /* L'image prend toute la largeur disponible */
+    height: auto;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.project-info {
+    margin: 40px auto;
+    max-width: 800px; /* Limite la largeur pour une meilleure lisibilité */
+    background-color: #ffffff; /* Fond blanc */
+    padding: 20px;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.project-info h2 {
+    font-size: 28px; /* Taille des sous-titres */
+    color: #007BFF; /* Couleur bleue pour les sous-titres */
+    margin-bottom: 20px;
+}
+
+.project-info ul {
+    list-style: none; /* Supprime les puces */
+    padding-left: 0;
+}
+
+.project-info ul li {
+    font-size: 18px; /* Taille du texte */
+    color: #666; /* Couleur du texte */
+    margin-bottom: 10px;
+}
+
+.project-info ul ul {
+    margin-left: 20px; /* Décalage pour les sous-listes */
+    list-style: disc; /* Ajoute des puces pour les sous-listes */
+}
+
+/* Description des bâtiments */
+/* Conteneur pour la description des bâtiments */
+.project-buildings-container {
+    display: flex;
+    flex-direction: column; /* Place l'image au-dessus du texte */
+    align-items: center; /* Centre les éléments */
+    gap: 20px; /* Ajoute un espacement entre l'image et le texte */
+}
+
+.buildings-image {
+    max-width: 100%; /* L'image prend toute la largeur disponible */
+    height: auto;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.project-buildings {
+    margin: 40px auto;
+    max-width: 800px;
+    background-color: #ffffff; /* Fond blanc */
+    padding: 20px;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.project-buildings h2 {
+    font-size: 28px;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+.project-buildings ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-buildings ul li {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Galerie de photos */
+.project-gallery {
+    margin: 40px auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.project-gallery h2 {
+    font-size: 28px;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+.project-gallery p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille responsive */
+    gap: 20px; /* Espacement entre les photos */
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .project-info,
+    .project-buildings,
+    .project-gallery {
+        padding: 15px; /* Réduit le padding sur les petits écrans */
+    }
+
+    .project-header h1 {
+        font-size: 28px; /* Réduit la taille du titre principal */
+    }
+
+    .project-header p {
+        font-size: 16px; /* Réduit la taille du texte */
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste la grille pour les petits écrans */
+    }
+}
+
+
+
+                                                    /* PAGE PROJETS*/
+
+/* Grille des projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Trois colonnes */
+    gap: 5px; /* Espacement entre les projets */
+    padding: 50px 300px;
+    justify-items: center;
+}
+
+.project {
+    margin: 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 0px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 450px; /* Limite la largeur des projets */
+}
+
+.project img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    cursor: default;
+}
+
+.project h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.project p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.project .description p {
+    font-size: 15px; /* Augmente la taille de la police */
+    line-height: 1.6; /* Ajuste l'espacement entre les lignes */
+    margin: 0;
+    font-weight: 400; /* Définit une épaisseur de texte normale */
+    text-align: justify; /* Justifie le texte pour une meilleure présentation */
+    padding: 10px 20px; /* Ajoute un espace intérieur pour aérer le texte */
+    border-radius: 8px; /* Ajoute des coins arrondis au texte */
+    background-color: rgba(255, 255, 255, 0.1); /* Ajoute un fond léger pour le texte */
+    color: #1a1a1a; /* Couleur du texte */
+}
+
+.project:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+}
+
+.project a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les petits écrans */
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* 1 colonne sur les très petits écrans */
+    }
+}
+
+/* Affichage Projets */
+/* Padding global */
+main {
+    padding: 80px;
+    text-align: center;
+}
+
+/* Image principale */
+.image-display {
+    margin: auto;
+    max-width: 50%; /* Largeur maximale de 50% */
+    height: 600px; /* Hauteur maximale de 600px */
+    border: none;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.image-display img {
+    width: auto; /* Largeur s'adapte à l'image */
+    max-width: 100%; /* Ne dépasse pas le conteneur */
+    height: 100%; /* Prend toute la hauteur disponible */
+    object-fit: contain; /* Garde les proportions de l'image */
+}
+
+/* Miniatures */
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.thumbnail {
+    width: 100px; /* Taille des miniatures */
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+.thumbnail:hover {
+    border: 2px solid #333; /* Bordure visible au survol */
+}
+
+/* Nom du projet */
+.project-header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Ajoute un espace entre le nom et les images */
+}
+
+.project-header h1 {
+    font-size: 28px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.project-header h1:hover {
+    color: #555;
+}
+
+/* Informations du projet */
+#projectInfo {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 0px solid #ddd;
+    border-radius: 0px;
+    max-width: 800px; /* Augmente la largeur pour un contenu plus dense */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    line-height: 2;
+    color: #333;
+    display: none; /* Masque la description par défaut */
+    text-align: left; /* Aligne le texte à gauche pour une meilleure lisibilité */
+    text-align: justify; /* Justifie le texte pour un rendu professionnel */
+}
+
+/* Détails du projet */
+.project-details p {
+    margin: 10px 0; /* Ajoute un espacement entre les paragraphes */  
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.project-details p strong {
+    color: #000; /* Met en évidence les titres */
+}
+
+/* Texte explicatif */
+.project-description p {
+    margin-top: 20px; /* Ajoute un espacement entre le titre et le texte */
+    text-align: justify; /* Justifie le texte pour un rendu professionnel */
+    line-height: 1.8; /* Augmente l'espacement entre les lignes pour une meilleure lisibilité */
+}
+
+
+                                                /*PAGE A PROPOS*/
+
+/* Uniformisation du padding pour toutes les sections */
+.about-content,
+.about-3D-content,
+.epitech-about {
+    padding: 20px 20px; /* Même padding en haut et en bas */
+    margin-bottom: 60px; /* Ajoute un espace entre les sections */
+}
+
+/* Uniformisation du style des titres */
+.about-content h2,
+.about-3D-content h2,
+.epitech-about h2 {
+    text-align: center; /* Centre tous les titres */
+    font-size: 28px; /* Taille du titre */
+    color: #333; /* Couleur du titre */
+    margin-bottom: 20px; /* Espacement en dessous du titre */
+    text-transform: uppercase; /* Met le titre en majuscules */
+    border-bottom: 2px solid #ddd; /* Ajoute un trait sous le titre */
+    display: inline-block; /* Limite la largeur du trait à celle du contenu */
+    padding-bottom: 10px; /* Ajoute un espace entre le texte et le trait */
+}
+
+/* Section principale À propos */
+.about {
+    padding: 60px 20px;
+    background-color: #ffffff; /* Couleur de fond légère */
+    text-align: center;
+    border-radius: 8px; /* Coins arrondis pour un design moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+    margin-bottom: 60px;
+}
+
+.about-header {
+    margin-bottom: 40px;
+}
+
+.about-header h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Met le titre en majuscules */
+}
+
+.about-header p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Contenu de la section À propos */
+/* Section principale À propos */
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #555;
+    border-radius: 8px;
+    padding: 40px 20px;
+}
+
+.about-content h3 {
+    font-size: 22px;
+    color: #444;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    text-align: justify;
+    text-align: left;
+}
+
+.about-content ul {
+    margin: 20px 0;
+    padding-left: 40px;
+    text-align: left;
+}
+
+.about-content ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.about-content strong {
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Section Économie */
+.about-economie-content {
+    background-color: #ffffff; /* Fond gris clair */
+    padding: 20px 20px; /* Ajoute un espace intérieur */
+    border-radius: 8px; /* Coins arrondis pour un design moderne */
+    margin-bottom: 60px; /* Ajoute un espace uniforme entre les sections */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Section 3D avec fond gris */
+.about-3D-content {
+    background-color: #ffffff; /* Fond gris clair */
+    border-radius: 8px; /* Coins arrondis pour un design moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+    padding: 20px 20px; /* Uniformise le padding interne */
+    margin-bottom: 60px; /* Ajoute un espace uniforme entre les sections */
+}
+
+.about-3D-content h3 {
+    font-size: 22px;
+    color: #444;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.about-3D-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    text-align: justify;
+    text-align: left;
+}
+
+/* Section Epitech À propos */
+.epitech-about {
+    background-color: #ffffff; /* Fond blanc */
+    text-align: center;
+    padding: 60px 20px; /* Uniformise le padding interne */
+    margin-bottom: 60px; /* Ajoute un espace uniforme entre les sections */
+}
+
+.epitech-about .section-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 40px;
+    text-transform: uppercase; /* Met le titre en majuscules */
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd; /* Ajoute un trait sous le titre */
+    display: inline-block; /* Limite la largeur du trait à celle du contenu */
+}
+
+.epitech-about-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet de s'adapter aux petits écrans */
+    gap: 40px; /* Espacement entre les éléments */
+    justify-content: center; /* Centre les éléments */
+}
+
+.epitech-about-item {
+    flex: 1 1 calc(33.333% - 40px); /* Trois colonnes avec un espacement */
+    max-width: 300px; /* Largeur maximale pour chaque élément */
+    text-align: left;
+    background-color: #f9f9f9; /* Fond léger */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.epitech-about-item:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+.epitech-about-item h4 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.epitech-about-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+                                                 /* A LA UNE */
+/* Titre principal */
+.project-header {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.project-header h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-header p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Informations générales */
+.project-info {
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.project-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.project-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-info ul li {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.project-info ul ul {
+    margin-left: 20px;
+    list-style: disc;
+}
+
+/* Description des bâtiments */
+.project-buildings {
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.project-buildings h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.project-buildings ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-buildings ul li {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+
+/* Galerie de photos */
+.project-gallery {
+    margin: 40px auto;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 1200px; /* Limite la largeur de la galerie */
+}
+
+.project-gallery h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille responsive */
+    gap: 20px; /* Espacement entre les photos */
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    cursor: pointer; /* Indique que les photos sont interactives */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+
+
+
+                                                 /* PIED DE PAGE */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajoute une couleur de fond grise */
+    border-top: 1px solid #e9e8e8;
+    margin-top: 40px;
+}
+
+/* Lien dans le footer */
+footer a {
+    color: #ffffff; /* Couleur du texte (gris foncé) */
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: normal; /* Style de texte normal */
+}
+
+footer a:hover {
+    color: #555; /* Couleur légèrement différente au survol */
+    text-decoration: underline; /* Ajoute un soulignement au survol (optionnel) */
+}
+
+
+                                        /* FORMULAIRE */
+
+/* Section principale */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Section d'introduction */
+.intro {
+    margin-bottom: 40px;
+    max-width: 800px; /* Limite la largeur de l'introduction */
+    text-align: center; /* Centre le texte */
+    margin: auto; /* Centre le texte */
+    padding-bottom: 20px;/* Ajoute un peu de rembourrage */
+}
+
+.intro h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Conteneur du formulaire */
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #f9f9f9; /* Fond gris clair */
+    padding: 30px; /* Ajoute un espace intérieur */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.contact-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; /* Centre le titre */
+}
+
+/* Formulaire */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacement entre les champs */
+}
+
+.contact-form label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px; /* Ajoute un espace intérieur */
+    font-size: 16px;
+    border: 1px solid #ddd; /* Bordure légère */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre intérieure */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #7c7c7c; /* Couleur de la bordure au focus */
+    box-shadow: 0 0 8px rgba(83, 83, 83, 0.3); /* Ombre au focus */
+    outline: none; /* Supprime le contour par défaut */
+}
+
+.contact-form textarea {
+    resize: none; /* Désactive le redimensionnement */
+    height: 150px; /* Hauteur par défaut */
+}
+
+/* Bouton de soumission */
+.contact-form button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #747474; /* Couleur du bouton */
+    border: none;
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animation fluide */
+}
+
+.contact-form button:hover {
+    background-color: #505050; /* Couleur au survol */
+    transform: translateY(-3px); /* Légère élévation au survol */
+}
+
+
+
+
+                                            /* Mentions légales */
+
+
+/* Conteneur principal des mentions légales */
+.legal-container {
+    max-width: 800px; /* Limite la largeur pour une meilleure lisibilité */
+    margin: 40px auto; /* Centre le contenu avec un espacement vertical */
+    padding: 20px; /* Ajoute un espace intérieur */
+    background-color: #f9f9f9; /* Fond gris clair */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+/* Titre principal */
+.legal-container h1 {
+    font-size: 32px; /* Taille du titre */
+    color: #333; /* Couleur du texte */
+    text-align: left; /* Aligne le titre à gauche */
+    margin-bottom: 20px; /* Espacement sous le titre */
+}
+
+/* Sous-titres */
+.legal-container h2 {
+    font-size: 24px; /* Taille des sous-titres */
+    color: #686868; /* Couleur bleue pour les sous-titres */
+    text-align: left; /* Aligne les sous-titres à gauche */
+    margin-top: 30px; /* Espacement au-dessus des sous-titres */
+    margin-bottom: 15px; /* Espacement sous les sous-titres */
+}
+
+/* Paragraphes */
+.legal-container p {
+    font-size: 18px; /* Taille du texte */
+    color: #666; /* Couleur du texte */
+    line-height: 1.8; /* Espacement entre les lignes */
+    text-align: left; /* Aligne le texte à gauche */
+    margin-bottom: 20px; /* Espacement entre les paragraphes */
+}
+
+/* Liste */
+.legal-container ul {
+    list-style: none; /* Supprime les puces */
+    padding-left: 0; /* Supprime le retrait */
+    text-align: left; /* Aligne les listes à gauche */
+}
+
+.legal-container ul li {
+    font-size: 18px; /* Taille du texte */
+    color: #666; /* Couleur du texte */
+    margin-bottom: 10px; /* Espacement entre les éléments de la liste */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .legal-container {
+        padding: 15px; /* Réduit le padding sur les petits écrans */
+    }
+
+    .legal-container h1 {
+        font-size: 28px; /* Réduit la taille du titre principal */
+    }
+
+    .legal-container h2 {
+        font-size: 20px; /* Réduit la taille des sous-titres */
+    }
+
+    .legal-container p {
+        font-size: 16px; /* Réduit la taille des paragraphes */
+    }
+}
