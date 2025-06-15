@@ -89,6 +89,43 @@ nav a:hover {
     color: #fff;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    body.home header {
+        flex-direction: column; /* Empile le logo et le menu */
+        padding: 10px; /* Réduit le padding pour les petits écrans */
+    }
+
+    .logo {
+        width: 60px; /* Réduit la taille du logo */
+    }
+
+    nav {
+        flex-direction: column; /* Empile les liens du menu */
+        gap: 10px; /* Réduit l'espacement entre les liens */
+    }
+
+    nav a {
+        font-size: 16px; /* Réduit la taille du texte pour les petits écrans */
+        padding: 8px 10px; /* Réduit le padding des liens */
+    }
+}
+
+@media (max-width: 480px) {
+    body.home header {
+        padding: 5px; /* Réduit encore le padding pour les très petits écrans */
+    }
+
+    .logo {
+        width: 50px; /* Taille encore réduite pour les très petits écrans */
+    }
+
+    nav a {
+        font-size: 14px; /* Réduit la taille du texte pour les très petits écrans */
+        padding: 5px 8px; /* Réduit le padding des liens */
+    }
+}
+
 /* Slideshow */
 .slideshow-container {
     position: relative; /* Positionnement relatif pour permettre le scroll */
@@ -203,6 +240,38 @@ nav a:hover {
     padding-bottom: 40px;
 }
 
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slideshow-container {
+        height: 70vh; /* Réduit la hauteur pour les tablettes */
+    }
+
+    .slideshow-container .slideshow-text h1 {
+        font-size: 36px; /* Réduit la taille du titre */
+    }
+
+    .slideshow-container .slideshow-text p {
+        font-size: 18px; /* Réduit la taille du texte */
+    }
+}
+
+@media (max-width: 480px) {
+    .slideshow-container {
+        height: 60vh; /* Réduit la hauteur pour les téléphones */
+    }
+
+    .slideshow-container .slideshow-text h1 {
+        font-size: 28px; /* Taille adaptée aux petits écrans */
+    }
+
+    .slideshow-container .slideshow-text p {
+        font-size: 16px; /* Taille adaptée aux petits écrans */
+    }
+}
+
+
 /* Section des missions */
 .missions {
     padding: 60px 20px;
@@ -314,6 +383,53 @@ nav a:hover {
     width: 100%;
     height: 200px;
     object-fit: cover; /* Ajuste l'image sans déformation */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .homepage-projects-container {
+        flex-direction: column; /* Empile le titre et la grille */
+        align-items: center; /* Centre les éléments */
+    }
+
+    .homepage-projects-title {
+        flex: 0 0 auto; /* Le titre prend toute la largeur */
+        text-align: center; /* Centre le texte */
+        margin-left: 0; /* Supprime la marge gauche */
+        margin-bottom: 20px; /* Ajoute un espacement en bas */
+    }
+
+    .homepage-projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour les tablettes */
+        padding-right: 20px; /* Réduit le padding à droite */
+        padding-left: 20px; /* Réduit le padding à gauche */
+    }
+
+    .homepage-projects-grid img {
+        height: 150px; /* Réduit la hauteur des images */
+    }
+}
+
+@media (max-width: 480px) {
+    .homepage-projects-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour les téléphones */
+        gap: 10px; /* Augmente l'espacement entre les images */
+        padding-right: 10px; /* Réduit le padding à droite */
+        padding-left: 10px; /* Réduit le padding à gauche */
+    }
+
+    .homepage-projects-grid img {
+        height: 120px; /* Réduit encore la hauteur des images */
+    }
+
+    .homepage-projects-title h2 {
+        font-size: 24px; /* Réduit la taille du titre */
+    }
+
+    .homepage-projects-title .view-more {
+        font-size: 14px; /* Réduit la taille du lien "Voir plus" */
+    }
 }
 
 /* Section Vision */
