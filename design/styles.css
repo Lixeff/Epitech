@@ -21,6 +21,7 @@ body.home header {
     width: 100%;
     z-index: 1000; /* Place le header au-dessus du diaporama */
     color: #ffffff; /* Texte en blanc pour le menu */
+    font-family: 'Roboto', sans-serif; /* Utilise une police moderne et lisible */
 }
 
 /* Style du menu pour les autres pages */
@@ -33,6 +34,7 @@ body.other-page header {
     position: relative; /* Menu non fixe */
     padding: 20px 20px; /* Ajoute plus d'espace */
     color: #333; /* Texte en noir */
+    font-family: 'Roboto', sans-serif; /* Utilise une police moderne et lisible */
 }
 
 body.other-page header nav a {
@@ -79,6 +81,7 @@ nav a {
     font-size: 18px;
     padding: 10px 15px;
     transition: background-color 0.3s, color 0.3s;
+    font-family: 'Roboto', sans-serif; /* Utilise une police moderne et lisible */
 }
 
 nav a:hover {
@@ -88,12 +91,16 @@ nav a:hover {
 
 /* Slideshow */
 .slideshow-container {
-    position: relative;
-    width: 100%; /* Largeur des images sur la page */
-    height: 100vh; 
-    margin: 0; /* Centre le slider horizontalement */
-    overflow: hidden; /* Cache les débordements des images */
+    position: relative; /* Positionnement relatif pour permettre le scroll */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Largeur totale de la fenêtre */
+    height: 90vh; /* Ajuste la hauteur pour ne pas couvrir le bas */
+    margin: 0;
+    overflow: hidden; /* Empêche le débordement */
+    z-index: 0; /* Place le slideshow derrière les autres éléments */
 }
+
 
 /* Voile sombre sur les images */
 .slideshow-container::before {
@@ -102,10 +109,18 @@ nav a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 90%;
+    height: 90%; /* Couvre toute la hauteur du conteneur */
     background: rgba(0, 0, 0, 0.5); /* Voile noir semi-transparent */
     z-index: 1; /* Place le voile au-dessus des images mais sous le texte */
     pointer-events: none; /* Permet de cliquer à travers le voile */
+}
+
+/* Images du slideshow */
+.slides {
+    display: block; /* Assure que les images sont visibles */
+    width: 100%; /* Prend toute la largeur du conteneur */
+    height: 100%; /* Prend toute la hauteur du conteneur */
+    object-fit: cover; /* Ajuste l'image pour couvrir tout le conteneur sans déformation */
 }
 
 /* Texte sur le diaporama */
@@ -120,14 +135,34 @@ nav a:hover {
 }
 
 .slideshow-container .slideshow-text h1 {
-    font-size: 48px;
+    font-size: 56px; /* Augmente la taille du texte pour plus d'impact */
     margin: 0;
+    color: #ffffff; /* Couleur blanche pour un contraste avec le fond */
+    font-weight: bold; /* Met en valeur le texte */
+    text-transform: uppercase; /* Met le texte en majuscules pour un effet moderne */
+    animation: fadeIn 1.5s ease-in-out; /* Ajoute une animation au chargement */
 }
 
 .slideshow-container .slideshow-text p {
-    font-size: 20px;
-    margin: 10px 0 0;
+    font-size: 24px; /* Augmente la taille pour une meilleure lisibilité */
+    margin: 15px 0 0;
+    color: #f0f0f0; /* Couleur légèrement grisée pour un contraste doux */
+    line-height: 1.8; /* Espacement entre les lignes pour une meilleure lisibilité */
+    animation: fadeIn 2s ease-in-out; /* Ajoute une animation au chargement */
 }
+
+/* Animation pour le texte */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .slides {
     display: none;
     width: 100%; /* Prend toute la largeur du conteneur */
@@ -151,13 +186,14 @@ nav a:hover {
     text-align: left;
     max-width: 800px; /* Limite la largeur de la description */
     background-color: #ffffff; /* Couleur de fond légère */
-    color: #333; /* Couleur du texte */
+    color: #464646; /* Couleur du texte */
 }
 
 .company-description h2 {
     font-size: 24px;
     margin-bottom: 18px;
-    color: #000; /* Couleur du titre */
+    color: #333333; /* Couleur du titre */
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .company-description p {
@@ -211,10 +247,9 @@ nav a:hover {
 
 .mission h3 {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 20px;
     color: #333;
     padding-bottom: 40px;
-    text-transform: uppercase; /* Met le texte en majuscules */
 }
 
 /* Section Nos projets */
@@ -293,7 +328,7 @@ nav a:hover {
     flex-wrap: wrap; /* Permet de s'adapter aux petits écrans */
     gap: 40px; /* Espacement entre les valeurs */
     justify-content: center; /* Centre les éléments */
-    padding-top: 60px;
+    padding-top: 40px;
     margin-bottom: 40px;
 }
 
@@ -305,12 +340,6 @@ nav a:hover {
     border-radius: 8px; /* Coins arrondis */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
     padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.home-about-item:hover {
-    transform: translateY(-5px); /* Légère élévation au survol */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
 }
 
 .home-about-item img {
@@ -321,18 +350,19 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
-.home-about-section-title{
-    font-size: 16px;
-    color: #919191;
+.home-about-section-title {
+    font-size: 30px;
+    color: #353535;
     text-decoration: none;
     font-weight: bold;
     margin-top: 10px;
     display: inline-block;
+    text-transform: uppercase; /* Transforme le texte en majuscules */
 }
 
 .home-about-item p {
     font-size: 16px;
-    color: #666;
+    color: #535353;
     line-height: 1.6;
     margin: 0;
     text-align: justify; /* Justifie le texte pour une meilleure présentation */
@@ -427,7 +457,6 @@ nav a:hover {
     text-align: left; /* Aligne le contenu à gauche */
     margin-bottom: 40px;
     border-radius: 8px; /* Coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
 
 /* Titre de la section À la une */
@@ -439,6 +468,7 @@ nav a:hover {
     border-bottom: 2px solid #ddd; /* Ajoute un trait sous le titre */
     display: inline-block; /* Limite la largeur du trait à celle du texte */
     padding-bottom: 10px; /* Ajoute un espace entre le texte et le trait */
+    margin-left: 20px;
 }
 
 /* Conteneur de la section */
@@ -708,178 +738,84 @@ main {
 
                                                     /* PAGE PROJETS*/
 
+
 /* Grille des projets */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Trois colonnes */
-    gap: 5px; /* Espacement entre les projets */
-    padding: 50px 300px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colonnes adaptatives */
+    gap: 20px; /* Augmente l'espacement entre les projets */
+    padding: 50px 20px; /* Réduit le padding pour une meilleure ergonomie */
     justify-items: center;
+    max-width: 1200px; /* Limite la largeur de la grille */
+    margin: 0 auto; /* Centre la grille horizontalement */
 }
 
+/* Style des projets */
 .project {
     margin: 0;
     text-align: center;
-    background-color: #f9f9f9;
-    border: none;
-    border-radius: 0px;
+    background-color: #ffffff; /* Fond blanc pour un contraste agréable */
+    border: 1px solid #ddd; /* Ajoute une bordure légère */
+    border-radius: 8px; /* Coins arrondis pour un design moderne */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner de la profondeur */
     overflow: hidden;
-    transition: transform 0.3s ease;
     width: 100%;
-    max-width: 450px; /* Limite la largeur des projets */
+    max-width: 400px; /* Limite la largeur des projets */
 }
 
+/* Images des projets */
 .project img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
-    cursor: default;
+    height: 250px; /* Ajuste la hauteur pour une meilleure présentation */
+    object-fit: cover; /* Ajuste les images pour remplir le conteneur */
+    border-bottom: 1px solid #ddd; /* Sépare l'image du contenu */
 }
 
+/* Titre des projets */
 .project h3 {
-    margin: 10px 0 5px;
-    font-size: 18px;
+    margin: 15px 0 10px;
+    font-size: 20px; /* Augmente la taille du titre */
+    color: #333;
+    font-weight: bold; /* Met en valeur le titre */
+}
+
+/* Description des projets */
+.project p {
+    margin: 0 10px 15px;
+    font-size: 16px; /* Taille de police légèrement augmentée */
+    color: #666;
+    line-height: 1.6; /* Espacement entre les lignes pour une meilleure lisibilité */
+}
+
+/* Texte explicatif */
+.project .description p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 10px 20px;
+    font-weight: 400;
+    text-align: justify;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(243, 243, 243, 0.5); /* Fond léger pour le texte */
     color: #333;
 }
 
-.project p {
-    margin: 0 0 10px;
-    font-size: 14px;
-    color: #666;
-}
-
-.project .description p {
-    font-size: 15px; /* Augmente la taille de la police */
-    line-height: 1.6; /* Ajuste l'espacement entre les lignes */
-    margin: 0;
-    font-weight: 400; /* Définit une épaisseur de texte normale */
-    text-align: justify; /* Justifie le texte pour une meilleure présentation */
-    padding: 10px 20px; /* Ajoute un espace intérieur pour aérer le texte */
-    border-radius: 8px; /* Ajoute des coins arrondis au texte */
-    background-color: rgba(255, 255, 255, 0.1); /* Ajoute un fond léger pour le texte */
-    color: #1a1a1a; /* Couleur du texte */
-}
-
-.project:hover {
-    transform: scale(1.05); /* Zoom léger au survol */
-}
-
-.project a {
-    text-decoration: none;
-    color: inherit;
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les petits écrans */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes adaptatives pour petits écrans */
     }
 }
 
 @media (max-width: 480px) {
     .projects-grid {
-        grid-template-columns: 1fr; /* 1 colonne sur les très petits écrans */
+        grid-template-columns: 1fr; /* Une seule colonne sur les très petits écrans */
+    }
+
+    .project img {
+        height: 200px; /* Réduit la hauteur des images pour les petits écrans */
     }
 }
-
-/* Affichage Projets */
-/* Padding global */
-main {
-    padding: 80px;
-    text-align: center;
-}
-
-/* Image principale */
-.image-display {
-    margin: auto;
-    max-width: 50%; /* Largeur maximale de 50% */
-    height: 600px; /* Hauteur maximale de 600px */
-    border: none;
-    border-radius: 0px;
-    overflow: hidden;
-}
-
-.image-display img {
-    width: auto; /* Largeur s'adapte à l'image */
-    max-width: 100%; /* Ne dépasse pas le conteneur */
-    height: 100%; /* Prend toute la hauteur disponible */
-    object-fit: contain; /* Garde les proportions de l'image */
-}
-
-/* Miniatures */
-.thumbnails {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
-}
-
-.thumbnail {
-    width: 100px; /* Taille des miniatures */
-    height: auto;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border 0.3s;
-}
-
-.thumbnail:hover {
-    border: 2px solid #333; /* Bordure visible au survol */
-}
-
-/* Nom du projet */
-.project-header {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px; /* Ajoute un espace entre le nom et les images */
-}
-
-.project-header h1 {
-    font-size: 28px;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.project-header h1:hover {
-    color: #555;
-}
-
-/* Informations du projet */
-#projectInfo {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 0px solid #ddd;
-    border-radius: 0px;
-    max-width: 800px; /* Augmente la largeur pour un contenu plus dense */
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-    line-height: 2;
-    color: #333;
-    display: none; /* Masque la description par défaut */
-    text-align: left; /* Aligne le texte à gauche pour une meilleure lisibilité */
-    text-align: justify; /* Justifie le texte pour un rendu professionnel */
-}
-
-/* Détails du projet */
-.project-details p {
-    margin: 10px 0; /* Ajoute un espacement entre les paragraphes */  
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.project-details p strong {
-    color: #000; /* Met en évidence les titres */
-}
-
-/* Texte explicatif */
-.project-description p {
-    margin-top: 20px; /* Ajoute un espacement entre le titre et le texte */
-    text-align: justify; /* Justifie le texte pour un rendu professionnel */
-    line-height: 1.8; /* Augmente l'espacement entre les lignes pour une meilleure lisibilité */
-}
-
 
                                                 /*PAGE A PROPOS*/
 
