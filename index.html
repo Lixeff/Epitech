@@ -26,6 +26,19 @@
     <meta name="twitter:description" content="20 ans d'expérience en pilotage de chantier. Île-de-France & Vienne.">
     <meta name="twitter:image" content="https://www.epitechmoe.com/images/og-image.jpg">
 
+    <!-- Restore deep-link URL after GitHub Pages 404 redirect -->
+    <script>
+      (function() {
+        var redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          if (redirect !== '/' && window.location.pathname === '/') {
+            window.history.replaceState(null, null, redirect);
+          }
+        }
+      })();
+    </script>
+
     <!-- Données structurées JSON-LD -->
     <script type="application/ld+json">
     {
@@ -74,7 +87,7 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-CTzmKANc.js"></script>
+    <script type="module" crossorigin src="/assets/index-EXwLbd17.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DA2aiqC4.css">
   </head>
   <body>
